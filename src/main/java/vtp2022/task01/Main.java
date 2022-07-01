@@ -1,4 +1,4 @@
-package vtp2022.assessment;
+package vtp2022.task01;
 
 /**
  * Hello world!
@@ -18,8 +18,6 @@ public class Main
         }
         else 
         {    System.out.println("Please specify file sources"); }
-
-        
 
 
     }

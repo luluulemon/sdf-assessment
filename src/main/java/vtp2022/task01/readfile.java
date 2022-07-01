@@ -1,4 +1,4 @@
-package vtp2022.assessment;
+package vtp2022.task01;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
