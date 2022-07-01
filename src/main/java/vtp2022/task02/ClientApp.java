@@ -39,7 +39,7 @@ public class ClientApp
             float average = sum/count;
             System.out.println("Average is " + average);        // print check
             
-            // 
+            // send answer over
             oos.writeUTF(request.split(" ")[0]);
             oos.writeUTF("Chen Luwei");
             oos.writeUTF("lulu@yahoo.com.sg");

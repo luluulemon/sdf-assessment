@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class readfile {
         while (null!=(line = br.readLine()))
         {   templateData.add(line);    }     // add non-headers data to list                   
           
-        System.out.println(templateData.size());    // print check
+        //System.out.println(templateData.size());    // print check
 
         br.close();
         isr.close();
@@ -37,7 +36,7 @@ public class readfile {
         {   modifiedHeaders[i] = "__" + headers[i] + "__" ; }
 
 
-        System.out.println(Arrays.toString(modifiedHeaders));   // print Check
+        //System.out.println(Arrays.toString(modifiedHeaders));   // print Check
 
             // loop each datapoint through template
             for(String eachData:templateData)
@@ -52,6 +51,23 @@ public class readfile {
                     {   if (line.contains(modifiedHeaders[i])   )
                         {   String target = modifiedHeaders[i];
                             String replacement = eachData.split(",")[i];
+                            
+                            // new line "\n" is not displaying properly. Manually split the strings
+                            if (replacement.contains("\\n"))
+                            {   
+                                int cutindex = replacement.indexOf("\\");
+                                String concatAdd = replacement.substring(0,cutindex)+ "\n";
+                                String remaining = replacement.substring(cutindex+2);
+                                while (remaining.indexOf("\\") != -1)
+                                {   
+                                    cutindex = remaining.indexOf("\\");
+                                    concatAdd += remaining.substring(0,cutindex) + "\n" ;
+                                    remaining = remaining.substring(cutindex+2);
+                                }
+                            concatAdd += remaining;
+                            replacement = concatAdd;
+                            }
+
                             line = line.replace(target, replacement);                  
                         }                  
                     }

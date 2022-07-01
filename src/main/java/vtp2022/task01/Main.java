@@ -1,7 +1,7 @@
 package vtp2022.task01;
 
 /**
- * Hello world!
+ * Mail merge feature
  *
  */
 public class Main 
@@ -18,7 +18,6 @@ public class Main
         }
         else 
         {    System.out.println("Please specify file sources"); }
-
 
     }
 }
